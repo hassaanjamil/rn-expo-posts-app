@@ -7,7 +7,6 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     zIndex: 9999,
-    elevation: 10, // Android-specific
     pointerEvents: 'auto', // Ensures overlay interaction
   },
 });
