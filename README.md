@@ -1,4 +1,20 @@
-# Welcome to your Expo app 👋
+# Welcome to the Todo app 👋
+
+## NOTE
+
+### Task 1:
+
+* You can find the source into `root/src` folder and into the `root/src/app,` specifically the UI navigation stack and components
+
+* The api implementation is based on Redux RTK Query, ensuring clean coding techniques. You can find a service named `jsonPlaceholderApi.ts` into `src/services` folder
+
+### Task 2:
+
+You can find a file named `transformData.js` in the root folder, which you can execute further using `node transformData.js` command to see the results.
+
+
+
+
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
