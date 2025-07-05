@@ -8,10 +8,12 @@ import { useLocalSearchParams, useRouter } from "expo-router";
 import { useEffect } from "react";
 import { ThemedView } from "@/components/ThemedView";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { useTranslation } from "react-i18next";
 
 const PostDetail = () => {
   const { postId, userId } = useLocalSearchParams();
   const router = useRouter();
+  const { t } = useTranslation();
 
   const [triggerPost, { data: postData, isLoading: isPostLoading, error: postError }] = useLazyGetPostQuery();
   const [triggerUser, { data: userData, isLoading: isUserLoading, error: userError }] = useLazyGetUserQuery();
@@ -49,7 +51,7 @@ const PostDetail = () => {
             {userData && (
               <ThemedView style={styles.userCard}>
                 <ThemedText type="subtitle" style={styles.userTitle}>
-                  User Details
+                  {t('user-details')}
                 </ThemedText>
                 <ThemedText style={styles.userInfo}>
                   Name: {userData.name}
@@ -63,7 +65,7 @@ const PostDetail = () => {
               </ThemedView>
             )}
             <ThemedButton
-              title="Go Back"
+              title={t('go-back')}
               type="primary"
               style={styles.button}
               onPress={goBackToPosts}
