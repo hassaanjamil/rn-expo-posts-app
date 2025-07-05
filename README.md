@@ -1,4 +1,4 @@
-# Welcome to the Todo app 👋
+# Welcome to the Posts app 👋
 
 ## NOTE
 
@@ -14,7 +14,7 @@ You can find a file named `transformData.js` in the root folder, which you can e
 
 
 
-
+# Posts app
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
