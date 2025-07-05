@@ -1,3 +1,5 @@
+import { PostDto } from "./post"
+
 export type PostState = {
-  selectedId?: number
+  selectedPost?: PostDto
 }

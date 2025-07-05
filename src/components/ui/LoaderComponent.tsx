@@ -1,11 +1,17 @@
 import React from 'react';
 import { ActivityIndicator, View, StyleSheet, Dimensions } from 'react-native';
 
-const LoaderComponent = () => (
-  <View style={styles.overlay}>
-    <ActivityIndicator size="large" color="#007AFF" />
-  </View>
-);
+type LoaderComponentProps = {
+  color: string;
+}
+const LoaderComponent = (props: LoaderComponentProps) => {
+  const { color } = props;
+  return (
+    <View style={styles.overlay}>
+      <ActivityIndicator size="large" color={color} />
+    </View>
+  )
+};
 
 const styles = StyleSheet.create({
   overlay: {

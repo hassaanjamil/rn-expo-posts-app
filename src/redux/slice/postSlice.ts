@@ -1,9 +1,9 @@
+import { PostDto } from "@/types/post"
 import { PostState } from "@/types/postState"
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 
 // Define the initial state using that type
 const initialState: PostState = {
-  selectedId: -1,
 }
 
 export const postSlice = createSlice({
@@ -11,11 +11,11 @@ export const postSlice = createSlice({
   // `createSlice` will infer the state type from the `initialState` argument
   initialState,
   reducers: {
-    setSelectedId: (state, action: PayloadAction<number>) => {
-      state.selectedId = action.payload
+    setSelectedPost: (state, action: PayloadAction<PostDto>) => {
+      state.selectedPost = action.payload
     },
   },
 })
 
-export const { setSelectedId } = postSlice.actions
+export const { setSelectedPost } = postSlice.actions
 export default postSlice.reducer
