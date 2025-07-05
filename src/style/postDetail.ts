@@ -21,17 +21,16 @@ export const styles = StyleSheet.create({
     fontSize: 22,
     fontWeight: "bold",
     marginBottom: 12,
-    textAlign: "center",
   },
   body: {
     fontSize: 16,
     marginBottom: 20,
-    textAlign: "center",
   },
   userCard: {
     borderRadius: 12,
     padding: 14,
-    marginBottom: 20,
+    marginBottom: 10,
+    borderWidth: 1,
   },
   userTitle: {
     fontWeight: "bold",
@@ -43,7 +42,6 @@ export const styles = StyleSheet.create({
     marginBottom: 2,
   },
   button: {
-    marginTop: 10,
     alignSelf: "center",
     minWidth: 120,
   },

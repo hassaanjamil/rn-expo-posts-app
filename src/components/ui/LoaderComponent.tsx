@@ -1,30 +1,21 @@
+import { useThemeColor } from '@/hooks/useThemeColor';
+import { styles } from '@/style/loaderStyle';
 import React from 'react';
-import { ActivityIndicator, View, StyleSheet, Dimensions } from 'react-native';
+import { ActivityIndicator, View } from 'react-native';
 
 type LoaderComponentProps = {
-  color: string;
+  lightColor?: string;
+  darkColor?: string;
 }
+
 const LoaderComponent = (props: LoaderComponentProps) => {
-  const { color } = props;
+  const { lightColor, darkColor } = props;
+  const color = useThemeColor({ light: lightColor, dark: darkColor }, 'text');
   return (
     <View style={styles.overlay}>
       <ActivityIndicator size="large" color={color} />
     </View>
   )
 };
-
-const styles = StyleSheet.create({
-  overlay: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    width: Dimensions.get('window').width,
-    height: Dimensions.get('window').height,
-    backgroundColor: 'rgba(0,0,0,0.2)',
-    alignItems: 'center',
-    justifyContent: 'center',
-    zIndex: 9999,
-  },
-});
 
 export default LoaderComponent;

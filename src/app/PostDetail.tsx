@@ -32,10 +32,12 @@ const PostDetail = () => {
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <ThemedView style={styles.postDetailContainer}>
-        {isPostLoading || isUserLoading && <LoaderComponent />}
-        {((postError || userError) && (
-          <ErrorComponent message={postError ? JSON.stringify(postError) : JSON.stringify(userError)} />
-        ))}
+        {(isPostLoading || isUserLoading) && <LoaderComponent />}
+        {(postError || userError) && (
+          <ErrorComponent message={postError ? JSON.stringify(postError)
+            : userError ? JSON.stringify(userError)
+              : ''} />
+        )}
         {postData && (
           <ThemedView style={styles.card}>
             <ThemedText type="title" style={styles.title}>
