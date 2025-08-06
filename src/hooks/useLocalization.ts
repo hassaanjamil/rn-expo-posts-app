@@ -1,7 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useCallback, useEffect, useState } from 'react';
-import { LANGUAGE_KEY } from '../constants/constants';
-import i18n from '../localization/i18n';
+import { LANGUAGE_KEY } from '@/constants/constants';
+import i18n from '@/localization/i18n';
 
 export function useLocalization() {
   const [currentLanguage, setCurrentLanguage] = useState(i18n.language);
