@@ -8,7 +8,7 @@ type LoaderComponentProps = {
   darkColor?: string;
 }
 
-const LoaderComponent = (props: LoaderComponentProps) => {
+export const LoaderComponent = (props: LoaderComponentProps) => {
   const { lightColor, darkColor } = props;
   const color = useThemeColor({ light: lightColor, dark: darkColor }, 'text');
   return (
@@ -17,5 +17,3 @@ const LoaderComponent = (props: LoaderComponentProps) => {
     </View>
   )
 };
-
-export default LoaderComponent;

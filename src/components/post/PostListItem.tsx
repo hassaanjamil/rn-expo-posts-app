@@ -1,12 +1,12 @@
 import React from 'react';
-import { ThemedView } from './ThemedView';
-import { ThemedText } from './ThemedText';
-import { ThemedButton } from './ThemedButton';
+import { ThemedView } from '../theme/ThemedView';
+import { ThemedText } from '../theme/ThemedText';
+import { ThemedButton } from '../theme/ThemedButton';
 import { styles } from '@/style/postListItem';
 import { PostListItemProps } from '@/types/postListItem';
 import { useTranslation } from 'react-i18next';
 
-const PostListItem: React.FC<PostListItemProps> = ({ item, onPress }) => {
+export const PostListItem: React.FC<PostListItemProps> = ({ item, onPress }) => {
   const { t } = useTranslation();
   return (
     <ThemedView style={styles.pliContainer}>
@@ -21,5 +21,3 @@ const PostListItem: React.FC<PostListItemProps> = ({ item, onPress }) => {
     </ThemedView>
   )
 };
-
-export default PostListItem;

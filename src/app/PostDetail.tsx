@@ -1,12 +1,9 @@
-import { ThemedButton } from "@/components/ThemedButton";
-import { ThemedText } from "@/components/ThemedText";
-import ErrorComponent from "@/components/ui/ErrorComponent";
-import LoaderComponent from "@/components/ui/LoaderComponent";
+import { ThemedButton, ThemedText, ThemedView } from "@/components/theme";
+import { ErrorComponent, LoaderComponent } from "@/components/ui";
 import { useLazyGetPostQuery, useLazyGetUserQuery } from "@/services/jsonPlaceholderApi";
 import { styles } from "@/style/postDetail";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import { useEffect } from "react";
-import { ThemedView } from "@/components/ThemedView";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useTranslation } from "react-i18next";
 
