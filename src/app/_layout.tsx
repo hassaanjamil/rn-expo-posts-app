@@ -4,11 +4,8 @@ import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import 'react-native-reanimated';
 
-import { Provider } from 'react-redux';
-import { useColorScheme } from '../hooks';
-import '../localization/i18n';
-import { store } from '../redux/store';
-import { ApiStatusProvider } from '@/context/ApiStatusContext';
+import { useColorScheme } from '@/main/hooks';
+import '@/main/localization/i18n';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 export default function RootLayout() {
@@ -25,16 +22,12 @@ export default function RootLayout() {
   return (
     <SafeAreaProvider>
       <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-        <Provider store={store}>
-          <ApiStatusProvider>
-            <Stack>
-              <Stack.Screen name="index" options={{ headerShown: false }} />
-              <Stack.Screen name="PostDetail" options={{ headerShown: false }} />
-              <Stack.Screen name="+not-found" />
-            </Stack>
-            <StatusBar style="auto" />
-          </ApiStatusProvider>
-        </Provider>
+        <Stack>
+          <Stack.Screen name="index" options={{ headerShown: false }} />
+          <Stack.Screen name="PostDetail" options={{ headerShown: false }} />
+          <Stack.Screen name="+not-found" />
+        </Stack>
+        <StatusBar style="auto" />
       </ThemeProvider>
     </SafeAreaProvider>
   );

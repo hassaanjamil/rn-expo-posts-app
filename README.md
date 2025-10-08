@@ -2,15 +2,14 @@
 
 ## NOTE
 
-### Task 1:
+### Architecture overview:
 
-* You can find the source into `root/src` folder and into the `root/src/app,` specifically the UI navigation stack and components
+* Source code lives in `src`.
+* The app follows a clean architecture split into `domain` (entities, repositories, use cases), `data` (remote/local data sources, repository implementations), and `presentation` (feature-first screens and UI components).
 
-* The api implementation is based on Redux RTK Query, ensuring clean coding techniques. You can find a service named `jsonPlaceholderApi.ts` into `src/services` folder
+### Utilities:
 
-### Task 2:
-
-You can find a file named `transformData.js` in the root folder, which you can execute further using `node transformData.js` command to see the results.
+* You can find a file named `transformData.js` in the root folder, which you can execute using `node transformData.js` to see the results.
 
 
 
