@@ -1,6 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useCallback, useEffect, useState } from 'react';
-import { LANGUAGE_KEY } from '@/constants/constants';
+import { LANGUAGE_KEY } from '@/main/constants/constants';
 import i18n from '@/main/localization/i18n';
 
 export function useLocalization() {
