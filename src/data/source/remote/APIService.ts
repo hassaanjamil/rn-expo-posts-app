@@ -1,4 +1,4 @@
-import { get } from '@/data/datasources/remote/axiosClient';
+import { get } from '@/data/source/remote/axiosClient';
 import { PostDto } from '@/domain/dto/PostDto';
 import { UserDto } from '@/domain/dto/UserDto';
 
