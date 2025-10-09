@@ -1,8 +1,8 @@
 import { APIService } from '@/data/source/remote/APIService';
 import { PostLocalDataSource } from '@/data/source/local/PostLocalDataSource';
 import { UserLocalDataSource } from '@/data/source/local/UserLocalDataSource';
-import { PostRepositoryImpl } from '@/data/repositories/PostRepositoryImpl';
-import { UserRepositoryImpl } from '@/data/repositories/UserRepositoryImpl';
+import { PostRepositoryImpl } from '@/data/repository/PostRepositoryImpl';
+import { UserRepositoryImpl } from '@/data/repository/UserRepositoryImpl';
 import { GetPostsUseCase } from '@/domain/usecases/GetPostsUseCase';
 import { GetPostUseCase } from '@/domain/usecases/GetPostUseCase';
 import { GetUserUseCase } from '@/domain/usecases/GetUserUseCase';
