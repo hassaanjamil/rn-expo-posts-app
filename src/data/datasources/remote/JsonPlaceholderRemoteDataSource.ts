@@ -1,6 +1,6 @@
 import { get } from '@/data/datasources/remote/axiosClient';
-import { PostDto } from '@/data/dto/PostDto';
-import { UserDto } from '@/data/dto/UserDto';
+import { PostDto } from '@/domain/dto/PostDto';
+import { UserDto } from '@/domain/dto/UserDto';
 
 export interface PostRemoteDataSource {
   fetchPosts(): Promise<PostDto[]>;

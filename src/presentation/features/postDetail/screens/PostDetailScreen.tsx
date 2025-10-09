@@ -42,9 +42,6 @@ export const PostDetailScreen: React.FC = () => {
                   Name: {user.name}
                 </ThemedText>
                 <ThemedText style={postDetailStyles.userInfo}>
-                  Email: {user.email}
-                </ThemedText>
-                <ThemedText style={postDetailStyles.userInfo}>
                   Username: {user.username}
                 </ThemedText>
               </ThemedView>

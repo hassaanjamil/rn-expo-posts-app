@@ -1,34 +1,34 @@
 import { PostRepository } from '@/domain/repositories/PostRepository';
-import { Post } from '@/domain/entities/Post';
 import { PostRemoteDataSource } from '@/data/datasources/remote/JsonPlaceholderRemoteDataSource';
 import { PostLocalDataSource } from '@/data/datasources/local/PostLocalDataSource';
-import { mapPostDtoToEntity } from '@/data/mappers/postMapper';
+import { mapPostDtoToPost } from '@/data/mappers/postMapper';
+import { PostDto } from '@/domain/dto/PostDto';
 
 export class PostRepositoryImpl implements PostRepository {
   constructor(
     private readonly remoteDataSource: PostRemoteDataSource,
     private readonly localDataSource: PostLocalDataSource
-  ) {}
+  ) { }
 
-  async getPosts(): Promise<Post[]> {
+  async getPosts(): Promise<PostDto[]> {
     const cachedPosts = await this.localDataSource.getPosts();
     if (cachedPosts && cachedPosts.length > 0) {
-      return cachedPosts.map(mapPostDtoToEntity);
+      return cachedPosts.map(mapPostDtoToPost);
     }
 
     const remotePosts = await this.remoteDataSource.fetchPosts();
     await this.localDataSource.savePosts(remotePosts);
-    return remotePosts.map(mapPostDtoToEntity);
+    return remotePosts.map(mapPostDtoToPost);
   }
 
-  async getPostById(id: number): Promise<Post | null> {
+  async getPostById(id: number): Promise<PostDto | null> {
     const cachedPost = await this.localDataSource.getPostById(id);
     if (cachedPost) {
-      return mapPostDtoToEntity(cachedPost);
+      return mapPostDtoToPost(cachedPost);
     }
 
     const remotePost = await this.remoteDataSource.fetchPostById(id);
     await this.localDataSource.savePost(remotePost);
-    return mapPostDtoToEntity(remotePost);
+    return mapPostDtoToPost(remotePost);
   }
 }

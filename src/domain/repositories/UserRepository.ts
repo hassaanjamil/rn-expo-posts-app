@@ -1,5 +1,5 @@
-import { User } from '@/domain/entities/User';
+import { UserDto } from '@/domain/dto/UserDto';
 
 export interface UserRepository {
-  getUserById(id: number): Promise<User | null>;
+  getUserById(id: number): Promise<UserDto | null>;
 }

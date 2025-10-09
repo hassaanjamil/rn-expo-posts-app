@@ -1,5 +1,5 @@
 import { del, get, post, put } from '@/data/datasources/remote/axiosClient';
-import { PostDto } from '@/data/dto/PostDto';
+import { PostDto } from '@/domain/dto/PostDto';
 
 const fetchPosts = async () => {
   try {

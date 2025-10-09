@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Post } from '@/domain/entities/Post';
+import { Post } from '@/data/entities/Post';
 import { ThemedButton, ThemedText, ThemedView } from '@/presentation/components/theme';
 import { postListItemStyles } from '@/presentation/features/posts/styles/postListItemStyles';
 

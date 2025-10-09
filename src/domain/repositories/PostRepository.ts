@@ -1,6 +1,6 @@
-import { Post } from '@/domain/entities/Post';
+import { PostDto } from '@/domain/dto/PostDto';
 
 export interface PostRepository {
-  getPosts(): Promise<Post[]>;
-  getPostById(id: number): Promise<Post | null>;
+  getPosts(): Promise<PostDto[]>;
+  getPostById(id: number): Promise<PostDto | null>;
 }

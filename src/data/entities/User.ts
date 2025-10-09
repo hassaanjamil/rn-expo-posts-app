@@ -1,4 +1,4 @@
-export type AddressDto = {
+export type Address = {
   street: string;
   suite: string;
   city: string;
@@ -9,19 +9,14 @@ export type AddressDto = {
   };
 };
 
-export type CompanyDto = {
+export type Company = {
   name?: string;
   catchPhrase?: string;
   bs?: string;
 };
 
-export type UserDto = {
+export type User = {
   id: number;
   name: string;
   username: string;
-  email: string;
-  address: AddressDto;
-  phone?: string;
-  website?: string;
-  company?: CompanyDto;
 };
