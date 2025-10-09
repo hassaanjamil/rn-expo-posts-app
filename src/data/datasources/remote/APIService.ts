@@ -11,7 +11,7 @@ export interface UserRemoteDataSource {
   fetchUserById(id: number): Promise<UserDto>;
 }
 
-export class JsonPlaceholderRemoteDataSource implements PostRemoteDataSource, UserRemoteDataSource {
+export class APIService implements PostRemoteDataSource, UserRemoteDataSource {
   async fetchPosts(): Promise<PostDto[]> {
     const response = await get<PostDto[]>('/posts');
     return response.data;

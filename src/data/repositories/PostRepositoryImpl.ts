@@ -1,5 +1,5 @@
 import { PostRepository } from '@/domain/repositories/PostRepository';
-import { PostRemoteDataSource } from '@/data/datasources/remote/JsonPlaceholderRemoteDataSource';
+import { PostRemoteDataSource } from '@/data/datasources/remote/APIService';
 import { PostLocalDataSource } from '@/data/datasources/local/PostLocalDataSource';
 import { mapPostDtoToPost } from '@/data/mappers/postMapper';
 import { PostDto } from '@/domain/dto/PostDto';

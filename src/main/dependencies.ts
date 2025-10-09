@@ -1,4 +1,4 @@
-import { JsonPlaceholderRemoteDataSource } from '@/data/datasources/remote/JsonPlaceholderRemoteDataSource';
+import { APIService } from '@/data/datasources/remote/APIService';
 import { PostLocalDataSource } from '@/data/datasources/local/PostLocalDataSource';
 import { UserLocalDataSource } from '@/data/datasources/local/UserLocalDataSource';
 import { PostRepositoryImpl } from '@/data/repositories/PostRepositoryImpl';
@@ -7,7 +7,7 @@ import { GetPostsUseCase } from '@/domain/usecases/GetPostsUseCase';
 import { GetPostUseCase } from '@/domain/usecases/GetPostUseCase';
 import { GetUserUseCase } from '@/domain/usecases/GetUserUseCase';
 
-const remoteDataSource = new JsonPlaceholderRemoteDataSource();
+const remoteDataSource = new APIService();
 const postLocalDataSource = new PostLocalDataSource();
 const userLocalDataSource = new UserLocalDataSource();
 
