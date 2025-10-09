@@ -1,7 +1,7 @@
 import { PostRepository } from '@/domain/repositories/PostRepository';
 import { PostRemoteDataSource } from '@/data/source/remote/APIService';
 import { PostLocalDataSource } from '@/data/source/local/PostLocalDataSource';
-import { mapPostDtoToPost } from '@/data/mappers/postMapper';
+import { mapPostDtoToPost } from '@/data/mappers';
 import { PostDto } from '@/domain/dto/PostDto';
 
 export class PostRepositoryImpl implements PostRepository {
