@@ -3,7 +3,7 @@ import { ActivityIndicator, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { useAuth } from '@/main/auth';
-import { ThemedButton, ThemedText, ThemedView } from '@/presentation/components/theme';
+import { ThemedButton, ThemedView } from '@/presentation/components/theme';
 
 import { authStyles } from '../styles/authStyles';
 
@@ -22,7 +22,7 @@ export const AuthScreen: React.FC = () => {
     } finally {
       setIsSubmitting(false);
     }
-  }, [login]);
+  }, [login, setIsSubmitting, isInitializing, isSubmitting]);
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
