@@ -1,3 +1,13 @@
-import { PostsScreen } from '@/presentation/features/posts/screens';
+import { Redirect } from 'expo-router';
 
-export default PostsScreen;
+import { useAuth } from '@/main/auth';
+
+export default function Index() {
+  const { isAuthenticated, isInitializing } = useAuth();
+
+  if (isInitializing) {
+    return null;
+  }
+
+  return <Redirect href={isAuthenticated ? '/(tabs)' : '/auth'} />;
+}

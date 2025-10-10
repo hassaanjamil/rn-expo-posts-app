@@ -3,6 +3,7 @@ import Constants from 'expo-constants';
 import { Platform } from 'react-native';
 
 export const LANGUAGE_KEY = 'language';
+export const AUTH_STORAGE_KEY = 'auth:isLoggedIn';
 
 const getDebuggerHost = () => {
   const expoConfigHost = Constants.expoConfig?.hostUri;

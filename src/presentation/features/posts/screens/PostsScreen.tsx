@@ -11,7 +11,7 @@ export const PostsScreen: React.FC = () => {
   const { posts, isLoading, error } = usePosts();
 
   const goToDetail = (postId: number, userId: number) => {
-    router.push({ pathname: '/PostDetail', params: { postId, userId } });
+    router.push({ pathname: '/post-detail', params: { postId, userId } });
   };
 
   return (

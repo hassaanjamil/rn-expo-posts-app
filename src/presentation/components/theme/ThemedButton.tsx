@@ -4,9 +4,9 @@ import { useThemeColor } from '@/main/hooks/useThemeColor';
 
 type ThemedButtonProps = PressableProps & {
   title: string;
+  type: 'default' | 'primary' | 'secondary';
   lightColor?: string;
   darkColor?: string;
-  type?: 'default' | 'primary' | 'secondary';
   textStyle?: TextStyle;
   style?: ViewStyle;
 };
