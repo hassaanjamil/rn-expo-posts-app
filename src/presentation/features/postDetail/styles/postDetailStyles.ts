@@ -37,6 +37,7 @@ export const postDetailStyles = StyleSheet.create({
   userInfo: {
     fontSize: 14,
     marginBottom: 2,
+    marginStart: 5
   },
   button: {
     alignSelf: 'center',

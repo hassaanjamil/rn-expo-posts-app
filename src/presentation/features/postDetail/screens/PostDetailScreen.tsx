@@ -7,10 +7,13 @@ import { LoaderComponent, ErrorComponent } from '@/presentation/components/commo
 import { postDetailStyles } from '@/presentation/features/postDetail/styles/postDetailStyles';
 import { usePostDetail } from '@/presentation/features/postDetail/hooks/usePostDetail';
 import { postListItemStyles } from '../../posts/styles/postListItemStyles';
+import { Ionicons } from '@expo/vector-icons';
+import { useTheme } from '@react-navigation/native';
 
 export const PostDetailScreen: React.FC = () => {
   const { postId, userId } = useLocalSearchParams<{ postId?: string; userId?: string }>();
   const { t } = useTranslation();
+  const { colors } = useTheme();
 
   const numericPostId = useMemo(() => (postId ? Number(postId) : undefined), [postId]);
   const numericUserId = useMemo(() => (userId ? Number(userId) : undefined), [userId]);
@@ -30,18 +33,26 @@ export const PostDetailScreen: React.FC = () => {
         </ThemedView>
       )}
       {user && (
-        <ThemedView style={postListItemStyles.container}>
-          <ThemedText type="subtitle" style={postDetailStyles.userTitle}>
-            {t('user-details')}
-          </ThemedText>
-          <ThemedText style={postDetailStyles.userInfo}>
-            Name: {user.name}
-          </ThemedText>
-          <ThemedText style={postDetailStyles.userInfo}>
-            Username: {user.username}
-          </ThemedText>
+        <ThemedView style={[postListItemStyles.container, { marginVertical: 3 }]}>
+          <ThemedView style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <Ionicons name="person" size={16} color={colors.text} />
+            <ThemedText style={postDetailStyles.userInfo}>
+              {user.name}
+            </ThemedText>
+          </ThemedView>
         </ThemedView>
       )}
+      {/* COMMENTS */}
+      {/* {user && (
+        <ThemedView style={[postListItemStyles.container, { marginVertical: 3 }]}>
+          <ThemedView style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <Ionicons name="person" size={16} color={colors.text} />
+            <ThemedText style={postDetailStyles.userInfo}>
+              {user.name}
+            </ThemedText>
+          </ThemedView>
+        </ThemedView>
+      )} */}
     </SafeAreaView>
   );
 };
