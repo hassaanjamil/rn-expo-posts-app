@@ -1,4 +1,4 @@
-# Welcome to the Posts app 👋
+# Welcome to the React Natice Expo Posts app 👋
 
 ## NOTE
 
