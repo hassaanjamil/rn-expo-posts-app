@@ -3,12 +3,9 @@ import { StyleSheet } from 'react-native';
 export const postDetailStyles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
   },
   card: {
     marginVertical: 8,
-    marginHorizontal: 16,
     padding: 16,
     borderRadius: 12,
     elevation: 2,

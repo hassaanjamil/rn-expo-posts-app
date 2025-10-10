@@ -1,8 +1,9 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Post } from '@/data/entity';
-import { ThemedButton, ThemedText, ThemedView } from '@/presentation/components/theme';
+import { ThemedText, ThemedView } from '@/presentation/components/theme';
 import { postListItemStyles } from '@/presentation/features/posts/styles/postListItemStyles';
+import { Pressable } from 'react-native';
 
 type PostListItemProps = {
   item: Post;
@@ -13,17 +14,13 @@ export const PostListItem: React.FC<PostListItemProps> = ({ item, onPress }) => 
   const { t } = useTranslation();
 
   return (
-    <ThemedView style={postListItemStyles.container}>
-      <ThemedText type="title" style={postListItemStyles.title}>
-        {item.title}
-      </ThemedText>
-      <ThemedText style={postListItemStyles.body}>{item.body}</ThemedText>
-      <ThemedButton
-        title={t('view-details')}
-        type="primary"
-        style={postListItemStyles.button}
-        onPress={() => onPress(item.id)}
-      />
-    </ThemedView>
+    <Pressable onPress={() => onPress(item.id)}>
+      <ThemedView style={postListItemStyles.container}>
+        <ThemedText type="title" style={postListItemStyles.title}>
+          {item.title}
+        </ThemedText>
+        <ThemedText style={postListItemStyles.body}>{item.body}</ThemedText>
+      </ThemedView>
+    </Pressable>
   );
 };
