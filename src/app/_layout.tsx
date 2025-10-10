@@ -42,7 +42,7 @@ function RootNavigation() {
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <Stack>
         <Stack.Screen name="auth" options={{ headerShown: false }} />
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen name="(tabs)" options={{ headerShown: false, title: 'Home' }} />
         <Stack.Screen name="post-detail" options={{ title: 'Post Detail' }} />
         <Stack.Screen name="profile" options={{ title: 'Profile' }} />
         <Stack.Screen name="+not-found" />
