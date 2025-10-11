@@ -1,6 +1,5 @@
 import React from 'react';
 import { FlatList, View } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import { PostListItem } from '@/presentation/features/posts/components';
 import { LoaderComponent, ErrorComponent } from '@/presentation/components/common';
@@ -15,21 +14,19 @@ export const PostsScreen: React.FC = () => {
   };
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
-      <View style={{ flex: 1 }}>
-        {isLoading && <LoaderComponent />}
-        {error && <ErrorComponent message={error} />}
-        <FlatList
-          data={posts}
-          keyExtractor={(item) => item.id.toString()}
-          renderItem={({ item }) => (
-            <PostListItem
-              item={item}
-              onPress={() => goToDetail(item.id, item.userId)}
-            />
-          )}
-        />
-      </View>
-    </SafeAreaView>
+    <View style={{ flex: 1 }}>
+      {isLoading && <LoaderComponent />}
+      {error && <ErrorComponent message={error} />}
+      <FlatList
+        data={posts}
+        keyExtractor={(item) => item.id.toString()}
+        renderItem={({ item }) => (
+          <PostListItem
+            item={item}
+            onPress={() => goToDetail(item.id, item.userId)}
+          />
+        )}
+      />
+    </View>
   );
 };

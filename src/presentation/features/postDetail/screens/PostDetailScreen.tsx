@@ -1,5 +1,4 @@
 import React, { useMemo } from 'react';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { useLocalSearchParams } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 import { ThemedText, ThemedView } from '@/presentation/components/theme';
@@ -9,6 +8,7 @@ import { usePostDetail } from '@/presentation/features/postDetail/hooks/usePostD
 import { postListItemStyles } from '../../posts/styles/postListItemStyles';
 import { MaterialIcons } from '@expo/vector-icons';
 import { useTheme } from '@react-navigation/native';
+import { View } from 'react-native';
 
 export const PostDetailScreen: React.FC = () => {
   const { postId, userId } = useLocalSearchParams<{ postId?: string; userId?: string }>();
@@ -21,7 +21,7 @@ export const PostDetailScreen: React.FC = () => {
   const { post, user, comments, isLoading, error } = usePostDetail(numericPostId, numericUserId);
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <View style={{ flex: 1 }}>
       {isLoading && <LoaderComponent />}
       {error && <ErrorComponent message={error} />}
       {post && (
@@ -54,6 +54,6 @@ export const PostDetailScreen: React.FC = () => {
           )}
         </ThemedView>
       )}
-    </SafeAreaView>
+    </View>
   );
 };
