@@ -9,6 +9,7 @@ import { postListItemStyles } from '../../posts/styles/postListItemStyles';
 import { MaterialIcons } from '@expo/vector-icons';
 import { useTheme } from '@react-navigation/native';
 import { View } from 'react-native';
+import { CommentList } from '../components/CommentList';
 
 export const PostDetailScreen: React.FC = () => {
   const { postId, userId } = useLocalSearchParams<{ postId?: string; userId?: string }>();
@@ -43,16 +44,7 @@ export const PostDetailScreen: React.FC = () => {
         </ThemedView>
       )}
       {comments && comments.length > 0 && (
-        <ThemedView style={postListItemStyles.container}>
-          {comments.map(comment =>
-            <ThemedView key={comment.id} style={{ flexDirection: 'row', marginTop: 5 }}>
-              <MaterialIcons style={{ marginTop: 2 }} name="format-quote" size={16} color={colors.text} />
-              <ThemedText type='default' style={postDetailStyles.userInfo}>
-                {comment.body}
-              </ThemedText>
-            </ThemedView>
-          )}
-        </ThemedView>
+        <CommentList comments={comments} />
       )}
     </View>
   );

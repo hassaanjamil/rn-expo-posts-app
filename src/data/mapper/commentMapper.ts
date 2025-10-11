@@ -1,5 +1,5 @@
-import { Comment } from '@/data/entity';
-import { CommentDto } from '@/domain/dto';
+import { Comment } from '@/domain/entity';
+import { CommentDto } from '@/data/dto';
 
 export const mapCommentDtoToComment = (dtos: CommentDto[]): Comment[] =>
   dtos.map(dto => ({

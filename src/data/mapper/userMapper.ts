@@ -1,5 +1,5 @@
-import { User } from '@/data/entity';
-import { UserDto } from '@/domain/dto';
+import { User } from '@/domain/entity';
+import { UserDto } from '@/data/dto';
 
 export const mapUserDtoToUser = (dto: UserDto): User => ({
   id: dto.id,

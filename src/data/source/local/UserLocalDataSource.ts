@@ -1,4 +1,4 @@
-import { UserDto } from '@/domain/dto/UserDto';
+import { UserDto } from '@/data/entity/UserDto';
 
 export class UserLocalDataSource {
   private readonly users = new Map<number, UserDto>();

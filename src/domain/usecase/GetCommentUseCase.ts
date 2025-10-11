@@ -1,5 +1,5 @@
-import { CommentDto } from '../dto';
-import { CommentRepository } from '../repository';
+import { CommentDto } from '@/data/dto';
+import { CommentRepository } from '@/domain/repository';
 
 export class GetCommentUseCase {
   constructor(private readonly commentRepository: CommentRepository) { }

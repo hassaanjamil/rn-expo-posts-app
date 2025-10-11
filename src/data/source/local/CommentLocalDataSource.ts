@@ -1,4 +1,4 @@
-import { CommentDto } from '@/domain/dto';
+import { CommentDto } from '@/data/dto';
 
 export class CommentLocalDataSource {
   private readonly comments = new Map<number, CommentDto[]>();

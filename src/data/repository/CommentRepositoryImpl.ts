@@ -1,7 +1,7 @@
 import { CommentRepository } from '@/domain/repository';
 import { CommentRemoteDataSource } from '@/data/source/remote/APIService';
 import { CommentLocalDataSource } from '@/data/source/local';
-import { CommentDto } from '@/domain/dto';
+import { CommentDto } from '@/data/dto';
 import { mapCommentDtoToComment, mapCommentToCommentDto } from '../mapper/commentMapper';
 
 export class CommentRepositoryImpl implements CommentRepository {

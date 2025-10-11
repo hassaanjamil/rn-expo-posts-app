@@ -1,6 +1,6 @@
 
 import { PostRepository } from '@/domain/repository';
-import { PostDto } from '../dto';
+import { PostDto } from '@/data/dto';
 
 export class GetPostsUseCase {
   constructor(private readonly postRepository: PostRepository) { }
