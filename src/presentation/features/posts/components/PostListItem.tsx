@@ -2,9 +2,9 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Post } from '@/domain/entity';
 import { ThemedText, ThemedView } from '@/presentation/components/theme';
-import { postListItemStyles } from '@/presentation/features/posts/styles/postListItemStyles';
 import { Pressable } from 'react-native';
 import { responsiveHitSlop, useResponsiveValue } from '@/main/utils/PixelUtils';
+import { postListItemStyles } from '../../posts/styles/postListItemStyles';
 
 type PostListItemProps = {
   item: Post;

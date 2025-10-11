@@ -1,11 +1,11 @@
 import { User } from "@/domain/entity";
 import { ThemedText, ThemedView } from "@/presentation/components/theme";
 import { MaterialIcons } from "@expo/vector-icons";
-import { StyleProp, StyleSheet, ViewProps } from "react-native";
+import { StyleProp, ViewProps } from "react-native";
 import { useTheme } from "@react-navigation/native";
-import { spacingY } from "@/presentation/theme/spacing";
 import { horizontalScale } from "@/main/utils/PixelUtils";
-import { postListItemStyles } from "../../posts/styles/postListItemStyles";
+import { cardStyles } from "@/main/styles/cardStyles";
+import { postDetailStyles } from "../styles/postDetailStyles";
 
 type CommentListItemProps = {
   user: User,
@@ -23,8 +23,8 @@ export const UserRowItem = ({
   }
 
   return (
-    <ThemedView style={[postListItemStyles.container, styles.userCard, containerStyle]}>
-      <ThemedView style={styles.userRow}>
+    <ThemedView style={[cardStyles.container, postDetailStyles.userCard, containerStyle]}>
+      <ThemedView style={postDetailStyles.userRow}>
         <MaterialIcons style={{ marginEnd: horizontalScale(5) }} name="person" size={horizontalScale(18)} color={colors.text} />
         <ThemedText type="default">
           {user.name}
@@ -33,13 +33,3 @@ export const UserRowItem = ({
     </ThemedView>
   );
 }
-
-const styles = StyleSheet.create({
-  userCard: {
-    marginVertical: spacingY.xs,
-  },
-  userRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-});

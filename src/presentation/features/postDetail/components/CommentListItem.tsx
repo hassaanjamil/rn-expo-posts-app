@@ -4,8 +4,9 @@ import { postDetailStyles } from "../styles/postDetailStyles";
 import { MaterialIcons } from "@expo/vector-icons";
 import { StyleProp, ViewProps } from "react-native";
 import { useTheme } from "@react-navigation/native";
-import { spacingX, spacingY } from "@/presentation/theme/spacing";
+import { spacingX } from "@/presentation/theme/spacing";
 import { horizontalScale } from "@/main/utils/PixelUtils";
+import { commentListStyles } from "../styles/commentListStyles";
 
 type CommentListItemProps = {
   comment: Comment,
@@ -32,7 +33,7 @@ export const CommentListItem = ({
       />
       <ThemedText
         type="default"
-        style={postDetailStyles.userInfo}>
+        style={commentListStyles.infoText}>
         {comment.body}
       </ThemedText>
     </ThemedView>

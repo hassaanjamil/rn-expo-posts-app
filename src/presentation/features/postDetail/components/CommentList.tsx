@@ -1,9 +1,9 @@
 import { Comment } from "@/domain/entity";
-import { StyleProp, FlatList, StyleSheet, View, ViewStyle } from "react-native";
+import { StyleProp, FlatList, View, ViewStyle } from "react-native";
 import { CommentListItem } from "./CommentListItem";
 import { ThemedView } from "@/presentation/components/theme";
-import { postListItemStyles } from "../../posts/styles/postListItemStyles";
-import { spacingY } from "@/presentation/theme/spacing";
+import { commentListStyles } from "../styles/commentListStyles";
+import { cardStyles } from "@/main/styles/cardStyles";
 
 type CommentListProps = {
   comments: Comment[],
@@ -21,7 +21,7 @@ export const CommentList = ({
   }
 
   return (
-    <ThemedView style={[postListItemStyles.container, containerStyle]}>
+    <ThemedView style={[cardStyles.container, containerStyle]}>
       <FlatList
         contentContainerStyle={commentListStyles.contentContainer}
         keyExtractor={(item) => item.id.toString()}
@@ -38,12 +38,3 @@ export const CommentList = ({
     </ThemedView>
   );
 }
-
-const commentListStyles = StyleSheet.create({
-  contentContainer: {
-    paddingVertical: spacingY.s,
-  },
-  separator: {
-    height: spacingY.xs,
-  },
-});

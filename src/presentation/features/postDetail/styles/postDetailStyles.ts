@@ -5,7 +5,16 @@ import { typography } from '@/presentation/theme/typography';
 
 export const postDetailStyles = StyleSheet.create({
   container: {
-    flex: 1,
+    marginVertical: spacingY.xs,
+    marginHorizontal: spacingX.s,
+    paddingHorizontal: spacingX.s,
+    paddingVertical: spacingY.s,
+    borderRadius: borderRadius.m,
+    elevation: 2,
+    shadowColor: '#000',
+    shadowOpacity: 0.08,
+    shadowRadius: moderateScale(6, 0.4),
+    shadowOffset: { width: 0, height: 2 },
   },
   card: {
     marginVertical: spacingY.s,
@@ -24,13 +33,6 @@ export const postDetailStyles = StyleSheet.create({
   body: {
     marginBottom: spacingY.none,
   },
-  userCard: {
-    borderRadius: borderRadius.m,
-    paddingHorizontal: spacingX.l,
-    paddingVertical: spacingY.m,
-    marginBottom: spacingY.m,
-    borderWidth: StyleSheet.hairlineWidth,
-  },
   userTitle: {
     ...typography.subtitle,
     marginBottom: spacingY.xs,
@@ -43,5 +45,12 @@ export const postDetailStyles = StyleSheet.create({
   button: {
     alignSelf: 'center',
     minWidth: horizontalScale(120),
+  },
+  userCard: {
+    marginVertical: spacingY.xs,
+  },
+  userRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
   },
 });

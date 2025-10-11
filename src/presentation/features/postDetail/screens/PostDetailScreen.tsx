@@ -1,23 +1,16 @@
 import React, { useMemo } from 'react';
 import { useLocalSearchParams } from 'expo-router';
-import { useTranslation } from 'react-i18next';
 import { ThemedText, ThemedView } from '@/presentation/components/theme';
 import { LoaderComponent, ErrorComponent } from '@/presentation/components/common';
 import { postDetailStyles } from '@/presentation/features/postDetail/styles/postDetailStyles';
 import { usePostDetail } from '@/presentation/features/postDetail/hooks/usePostDetail';
-import { postListItemStyles } from '../../posts/styles/postListItemStyles';
-import { MaterialIcons } from '@expo/vector-icons';
-import { useTheme } from '@react-navigation/native';
 import { StyleSheet, View } from 'react-native';
 import { CommentList } from '../components/CommentList';
-import { horizontalScale } from '@/main/utils/PixelUtils';
 import { spacingY } from '@/presentation/theme/spacing';
 import { UserRowItem } from '../components/UserListItem';
 
 export const PostDetailScreen: React.FC = () => {
   const { postId, userId } = useLocalSearchParams<{ postId?: string; userId?: string }>();
-  const { t } = useTranslation();
-  const { colors } = useTheme();
 
   const numericPostId = useMemo(() => (postId ? Number(postId) : undefined), [postId]);
   const numericUserId = useMemo(() => (userId ? Number(userId) : undefined), [userId]);
@@ -29,7 +22,7 @@ export const PostDetailScreen: React.FC = () => {
       {isLoading && <LoaderComponent />}
       {error && <ErrorComponent message={error} />}
       {post && (
-        <ThemedView style={postListItemStyles.container}>
+        <ThemedView style={postDetailStyles.container}>
           <ThemedText type="title" style={screenStyles.title}>
             {post.title}
           </ThemedText>
