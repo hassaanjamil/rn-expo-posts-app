@@ -49,8 +49,16 @@ src
 ├── main          // App wiring: dependency container, auth context, constants, shared hooks
 └── app           // File-based Expo Router entry points import component from presentation/features (auth stack, tabs, modals)
 ```
+## Tech Stack
+- Expo 53.0.23, React 19.0.0, React Native 0.79.5
+- Typescript 5.8.3, VS Code 1.104.3
+- Node.js: 22.18.0
+- Expo Router 5.1.7
+- Expo Localization 16.1.6
+- i18n 25.2.1
+- Expo Font 13.3.2
 
-Key principles:
+## Key principles
 - **Domain layer** exposes pure business logic through use cases (`GetPostsUseCase`, `GetPostUseCase`, `GetUserUseCase`, `GetCommentUseCase`).
 - **Data layer** handles infrastructure concerns (API service, cache), maps raw DTOs to domain-safe entities and vice versa and repository implementations.
 - **Presentation layer** stays framework-centric (React components, hooks) and only depends on domain interfaces via `useCases`.
@@ -66,14 +74,14 @@ src/
     constants/         BASE_URL resolution, storage keys
     dependencies.ts    IoC: wires data sources, repositories, and use cases
   domain/
-    dto/               Shared DTO contracts
+    entity/               Shared DTO contracts
     repository/        Repository interfaces
     usecase/           Domain use cases (exported via index.ts)
   data/
     source/            remote (API) + local (in-memory) data sources
     repository/        Repository implementations
     mapper/            DTO-to-entity mapping helpers
-    entity/            Data entities mirroring API contracts
+    dto/            Data entities mirroring API contracts
   presentation/
     components/        Shared themed UI primitives
     features/
