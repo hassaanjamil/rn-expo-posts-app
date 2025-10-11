@@ -1,8 +1,8 @@
 import { UserRepository } from '@/domain/repository/UserRepository';
 import { UserRemoteDataSource } from '@/data/source/remote/APIService';
-import { UserLocalDataSource } from '@/data/source/local/CommentLocalDataSource';
+import { UserLocalDataSource } from '@/data/source/local';
 import { mapUserDtoToUser } from '@/data/mapper/userMapper';
-import { UserDto } from '@/data/entity/UserDto';
+import { UserDto } from '@/data/dto';
 
 export class UserRepositoryImpl implements UserRepository {
   constructor(

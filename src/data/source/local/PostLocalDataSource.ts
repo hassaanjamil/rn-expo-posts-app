@@ -1,4 +1,4 @@
-import { PostDto } from '@/data/entity/PostDto';
+import { PostDto } from '@/data/dto';
 
 export class PostLocalDataSource {
   private readonly posts = new Map<number, PostDto>();
