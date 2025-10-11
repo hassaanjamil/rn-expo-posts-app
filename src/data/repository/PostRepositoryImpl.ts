@@ -1,4 +1,4 @@
-import { PostRepository } from '@/domain/repositories/PostRepository';
+import { PostRepository } from '@/domain/repository';
 import { PostRemoteDataSource } from '@/data/source/remote/APIService';
 import { PostLocalDataSource } from '@/data/source/local/PostLocalDataSource';
 import { mapPostDtoToPost } from '@/data/mapper';

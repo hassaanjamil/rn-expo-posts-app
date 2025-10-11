@@ -7,7 +7,7 @@ import { LoaderComponent, ErrorComponent } from '@/presentation/components/commo
 import { postDetailStyles } from '@/presentation/features/postDetail/styles/postDetailStyles';
 import { usePostDetail } from '@/presentation/features/postDetail/hooks/usePostDetail';
 import { postListItemStyles } from '../../posts/styles/postListItemStyles';
-import { Ionicons } from '@expo/vector-icons';
+import { MaterialIcons } from '@expo/vector-icons';
 import { useTheme } from '@react-navigation/native';
 
 export const PostDetailScreen: React.FC = () => {
@@ -18,7 +18,7 @@ export const PostDetailScreen: React.FC = () => {
   const numericPostId = useMemo(() => (postId ? Number(postId) : undefined), [postId]);
   const numericUserId = useMemo(() => (userId ? Number(userId) : undefined), [userId]);
 
-  const { post, user, isLoading, error } = usePostDetail(numericPostId, numericUserId);
+  const { post, user, comments, isLoading, error } = usePostDetail(numericPostId, numericUserId);
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
@@ -35,24 +35,25 @@ export const PostDetailScreen: React.FC = () => {
       {user && (
         <ThemedView style={[postListItemStyles.container, { marginVertical: 3 }]}>
           <ThemedView style={{ flexDirection: 'row', alignItems: 'center' }}>
-            <Ionicons name="person" size={16} color={colors.text} />
+            <MaterialIcons name="person" size={16} color={colors.text} />
             <ThemedText style={postDetailStyles.userInfo}>
               {user.name}
             </ThemedText>
           </ThemedView>
         </ThemedView>
       )}
-      {/* COMMENTS */}
-      {/* {user && (
-        <ThemedView style={[postListItemStyles.container, { marginVertical: 3 }]}>
-          <ThemedView style={{ flexDirection: 'row', alignItems: 'center' }}>
-            <Ionicons name="person" size={16} color={colors.text} />
-            <ThemedText style={postDetailStyles.userInfo}>
-              {user.name}
-            </ThemedText>
-          </ThemedView>
+      {comments && comments.length > 0 && (
+        <ThemedView style={postListItemStyles.container}>
+          {comments.map(comment =>
+            <ThemedView key={comment.id} style={{ flexDirection: 'row', marginTop: 5 }}>
+              <MaterialIcons style={{ marginTop: 2 }} name="format-quote" size={16} color={colors.text} />
+              <ThemedText type='default' style={postDetailStyles.userInfo}>
+                {comment.body}
+              </ThemedText>
+            </ThemedView>
+          )}
         </ThemedView>
-      )} */}
+      )}
     </SafeAreaView>
   );
 };

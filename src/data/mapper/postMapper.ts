@@ -1,5 +1,5 @@
 import { Post } from '@/data/entity';
-import { PostDto } from '@/domain/dto/PostDto';
+import { PostDto } from '@/domain/dto';
 
 export const mapPostDtoToPost = (dto: PostDto): Post => ({
   id: dto.id,

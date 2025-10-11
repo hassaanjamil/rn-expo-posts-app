@@ -1,10 +1,11 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { Post, User } from '@/data/entity';
+import { Post, User, Comment } from '@/data/entity';
 import { useCases } from '@/main/dependencies';
 
 type UsePostDetailState = {
   post: Post | null;
   user: User | null;
+  comments: Comment[] | null;
   isLoading: boolean;
   error: string | null;
 };
@@ -13,6 +14,7 @@ export const usePostDetail = (postId?: number, userId?: number) => {
   const [state, setState] = useState<UsePostDetailState>({
     post: null,
     user: null,
+    comments: null,
     isLoading: false,
     error: null,
   });
@@ -27,16 +29,19 @@ export const usePostDetail = (postId?: number, userId?: number) => {
     setState((prev) => ({ ...prev, isLoading: true, error: null }));
 
     try {
-      const [post, user] = await Promise.all([
-        useCases.getPostUseCase.execute(postId as number),
+      const postPromise = useCases.getPostUseCase.execute(postId as number);
+      const userPromise =
         typeof userId === 'number' && !Number.isNaN(userId)
           ? useCases.getUserUseCase.execute(userId)
-          : Promise.resolve(null),
-      ]);
+          : Promise.resolve(null);
+      const commentsPromise = useCases.getCommentUseCase.execute(postId as number);
+
+      const [post, user, comments] = await Promise.all([postPromise, userPromise, commentsPromise]);
 
       setState({
         post,
         user,
+        comments,
         isLoading: false,
         error: null,
       });
@@ -44,6 +49,7 @@ export const usePostDetail = (postId?: number, userId?: number) => {
       setState({
         post: null,
         user: null,
+        comments: null,
         isLoading: false,
         error: error instanceof Error ? error.message : 'Failed to load post details',
       });

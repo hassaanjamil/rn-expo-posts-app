@@ -1,6 +1,5 @@
 import { get } from '@/data/source/remote/axiosClient';
-import { PostDto } from '@/domain/dto/PostDto';
-import { UserDto } from '@/domain/dto/UserDto';
+import { CommentDto, PostDto, UserDto } from '@/domain/dto';
 
 export interface PostRemoteDataSource {
   fetchPosts(): Promise<PostDto[]>;
@@ -9,6 +8,10 @@ export interface PostRemoteDataSource {
 
 export interface UserRemoteDataSource {
   fetchUserById(id: number): Promise<UserDto>;
+}
+
+export interface CommentRemoteDataSource {
+  fetchCommentsByPostId(id: number): Promise<CommentDto[]>;
 }
 
 export class APIService implements PostRemoteDataSource, UserRemoteDataSource {
@@ -24,6 +27,11 @@ export class APIService implements PostRemoteDataSource, UserRemoteDataSource {
 
   async fetchUserById(id: number): Promise<UserDto> {
     const response = await get<UserDto>(`/users/${id}`);
+    return response.data;
+  }
+
+  async fetchCommentsByPostId(id: number): Promise<CommentDto[]> {
+    const response = await get<CommentDto[]>(`/comments/${id}`);
     return response.data;
   }
 }

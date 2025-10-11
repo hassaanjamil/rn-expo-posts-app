@@ -1,4 +1,4 @@
-import { PostDto } from '@/domain/dto/PostDto';
+import { PostDto } from '@/domain/dto';
 
 export interface PostRepository {
   getPosts(): Promise<PostDto[]>;
