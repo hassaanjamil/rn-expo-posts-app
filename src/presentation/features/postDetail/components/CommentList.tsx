@@ -3,7 +3,7 @@ import { StyleProp, FlatList, View, ViewStyle } from "react-native";
 import { CommentListItem } from "./CommentListItem";
 import { ThemedView } from "@/presentation/components/theme";
 import { commentListStyles } from "../styles/commentListStyles";
-import { cardStyles } from "@/main/styles/cardStyles";
+import { cardStyles } from "@/main/styles";
 
 type CommentListProps = {
   comments: Comment[],

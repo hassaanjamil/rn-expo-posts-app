@@ -4,7 +4,7 @@ import { MaterialIcons } from "@expo/vector-icons";
 import { StyleProp, ViewProps } from "react-native";
 import { useTheme } from "@react-navigation/native";
 import { horizontalScale } from "@/main/utils/PixelUtils";
-import { cardStyles } from "@/main/styles/cardStyles";
+import { cardStyles } from "@/main/styles";
 import { postDetailStyles } from "../styles/postDetailStyles";
 
 type CommentListItemProps = {
