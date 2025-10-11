@@ -1,28 +1,29 @@
 import { StyleSheet } from 'react-native';
+import { horizontalScale, moderateScale } from '@/main/utils/PixelUtils';
+import { borderRadius, spacingX, spacingY } from '@/presentation/theme/spacing';
 
 export const postListItemStyles = StyleSheet.create({
   container: {
-    marginVertical: 8,
-    marginHorizontal: 16,
-    padding: 16,
-    borderRadius: 12,
+    marginVertical: spacingY.s,
+    marginHorizontal: spacingX.s,
+    paddingHorizontal: spacingX.s,
+    paddingVertical: spacingY.s,
+    borderRadius: borderRadius.m,
     elevation: 2,
     shadowColor: '#000',
     shadowOpacity: 0.08,
-    shadowRadius: 6,
+    shadowRadius: moderateScale(6, 0.4),
     shadowOffset: { width: 0, height: 2 },
   },
   title: {
-    fontSize: 18,
-    marginBottom: 8,
+    marginBottom: spacingY.s,
   },
   body: {
-    fontSize: 14,
-    marginBottom: 12,
     color: '#666',
+    marginBottom: spacingY.m,
   },
   button: {
     alignSelf: 'flex-end',
-    minWidth: 120,
+    minWidth: horizontalScale(120),
   },
 });

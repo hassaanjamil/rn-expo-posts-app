@@ -1,46 +1,47 @@
 import { StyleSheet } from 'react-native';
+import { horizontalScale, moderateScale } from '@/main/utils/PixelUtils';
+import { borderRadius, spacingX, spacingY } from '@/presentation/theme/spacing';
+import { typography } from '@/presentation/theme/typography';
 
 export const postDetailStyles = StyleSheet.create({
   container: {
     flex: 1,
   },
   card: {
-    marginVertical: 8,
-    padding: 16,
-    borderRadius: 12,
+    marginVertical: spacingY.s,
+    paddingHorizontal: spacingX.l,
+    paddingVertical: spacingY.l,
+    borderRadius: borderRadius.m,
     elevation: 2,
     shadowColor: '#000',
     shadowOpacity: 0.08,
-    shadowRadius: 6,
+    shadowRadius: moderateScale(6, 0.4),
     shadowOffset: { width: 0, height: 2 },
   },
   title: {
-    fontSize: 22,
-    fontWeight: 'bold',
-    marginBottom: 12,
+    marginBottom: spacingY.s,
   },
   body: {
-    fontSize: 16,
-    marginBottom: 20,
+    marginBottom: spacingY.s,
   },
   userCard: {
-    borderRadius: 12,
-    padding: 14,
-    marginBottom: 10,
-    borderWidth: 1,
+    borderRadius: borderRadius.m,
+    paddingHorizontal: spacingX.l,
+    paddingVertical: spacingY.m,
+    marginBottom: spacingY.m,
+    borderWidth: StyleSheet.hairlineWidth,
   },
   userTitle: {
-    fontWeight: 'bold',
-    fontSize: 16,
-    marginBottom: 6,
+    ...typography.subtitle,
+    marginBottom: spacingY.xs,
   },
   userInfo: {
-    fontSize: 14,
-    marginBottom: 2,
-    marginStart: 5
+    ...typography.caption,
+    marginBottom: spacingY.xxs,
+    marginLeft: horizontalScale(4),
   },
   button: {
     alignSelf: 'center',
-    minWidth: 120,
+    minWidth: horizontalScale(120),
   },
 });

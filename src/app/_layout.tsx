@@ -9,11 +9,18 @@ import { AuthProvider, useAuth } from '@/main/auth';
 import { useColorScheme } from '@/main/hooks';
 import '@/main/localization/i18n';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { NotoSans_400Regular } from '@expo-google-fonts/noto-sans/400Regular';
+import { NotoSans_500Medium } from '@expo-google-fonts/noto-sans/500Medium';
+import { NotoSans_600SemiBold } from '@expo-google-fonts/noto-sans/600SemiBold';
+import { NotoSans_700Bold } from '@expo-google-fonts/noto-sans/700Bold';
 
 function RootNavigation() {
   const colorScheme = useColorScheme();
   const [fontsLoaded] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
+    NotoSans_400Regular,
+    NotoSans_500Medium,
+    NotoSans_600SemiBold,
+    NotoSans_700Bold,
   });
   const segments = useSegments();
   const router = useRouter();

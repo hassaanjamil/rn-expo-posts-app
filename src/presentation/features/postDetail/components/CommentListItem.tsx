@@ -4,6 +4,8 @@ import { postDetailStyles } from "../styles/postDetailStyles";
 import { MaterialIcons } from "@expo/vector-icons";
 import { StyleProp, ViewProps } from "react-native";
 import { useTheme } from "@react-navigation/native";
+import { spacingX, spacingY } from "@/presentation/theme/spacing";
+import { horizontalScale } from "@/main/utils/PixelUtils";
 
 type CommentListItemProps = {
   comment: Comment,
@@ -22,13 +24,14 @@ export const CommentListItem = ({
 
   return (
     <ThemedView
-      style={[{ flexDirection: 'row', marginTop: 5 }, containerStyle]}>
+      style={[{ flexDirection: 'row' }, containerStyle]}>
       <MaterialIcons
-        style={{ marginTop: 2 }}
-        name="format-quote" size={16}
-        color={colors.text} />
+        style={{ marginTop: spacingY.xxs, marginRight: spacingX.xs, }}
+        name="format-quote" size={horizontalScale(16)}
+        color={colors.text}
+      />
       <ThemedText
-        type='default'
+        type="default"
         style={postDetailStyles.userInfo}>
         {comment.body}
       </ThemedText>

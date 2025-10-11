@@ -8,8 +8,11 @@ import { usePostDetail } from '@/presentation/features/postDetail/hooks/usePostD
 import { postListItemStyles } from '../../posts/styles/postListItemStyles';
 import { MaterialIcons } from '@expo/vector-icons';
 import { useTheme } from '@react-navigation/native';
-import { View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { CommentList } from '../components/CommentList';
+import { horizontalScale } from '@/main/utils/PixelUtils';
+import { spacingY } from '@/presentation/theme/spacing';
+import { UserRowItem } from '../components/UserListItem';
 
 export const PostDetailScreen: React.FC = () => {
   const { postId, userId } = useLocalSearchParams<{ postId?: string; userId?: string }>();
@@ -22,30 +25,42 @@ export const PostDetailScreen: React.FC = () => {
   const { post, user, comments, isLoading, error } = usePostDetail(numericPostId, numericUserId);
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={screenStyles.screen}>
       {isLoading && <LoaderComponent />}
       {error && <ErrorComponent message={error} />}
       {post && (
         <ThemedView style={postListItemStyles.container}>
-          <ThemedText type="title" style={postDetailStyles.title}>
+          <ThemedText type="title" style={screenStyles.title}>
             {post.title}
           </ThemedText>
           <ThemedText style={postDetailStyles.body}>{post.body}</ThemedText>
         </ThemedView>
       )}
       {user && (
-        <ThemedView style={[postListItemStyles.container, { marginVertical: 3 }]}>
-          <ThemedView style={{ flexDirection: 'row', alignItems: 'center' }}>
-            <MaterialIcons name="person" size={16} color={colors.text} />
-            <ThemedText style={postDetailStyles.userInfo}>
-              {user.name}
-            </ThemedText>
-          </ThemedView>
-        </ThemedView>
+        <UserRowItem user={user} />
       )}
-      {comments && comments.length > 0 && (
-        <CommentList comments={comments} />
-      )}
+      {comments &&
+        <CommentList
+          comments={comments}
+        />
+      }
     </View>
   );
 };
+
+const screenStyles = StyleSheet.create({
+  screen: {
+    flex: 1,
+    paddingVertical: spacingY.s,
+  },
+  userRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  userCard: {
+    marginVertical: spacingY.xs,
+  },
+  title: {
+    marginBottom: spacingY.s,
+  },
+});
