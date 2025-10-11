@@ -18,7 +18,7 @@ export const SettingsScreen: React.FC = () => {
   return (
     <ThemedView style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <ThemedText type="title">Settings</ThemedText>
-      <ThemedButton type="primary" title="Logout" onPress={handleLogout} disabled={isProcessing} />
+      <ThemedButton style={{ marginTop: 15 }} type="primary" title="Logout" onPress={handleLogout} disabled={isProcessing} />
     </ThemedView>
   );
 };
