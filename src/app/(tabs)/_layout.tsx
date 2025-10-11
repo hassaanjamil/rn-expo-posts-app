@@ -1,4 +1,4 @@
-import { Ionicons } from '@expo/vector-icons';
+import { MaterialIcons } from '@expo/vector-icons';
 import { Tabs, useRouter } from 'expo-router';
 import React from 'react';
 import { Pressable } from 'react-native';
@@ -16,7 +16,7 @@ const ProfileHeaderButton: React.FC = () => {
 
   return (
     <Pressable onPress={() => router.push('/profile')} style={{ paddingHorizontal: 12 }}>
-      <Ionicons name="person-circle-outline" size={28} color={colors.text} />
+      <MaterialIcons name="person" size={28} color={colors.text} />
     </Pressable>
   );
 };
@@ -34,21 +34,21 @@ export default function TabsLayout() {
         name="index"
         options={{
           title: 'Home',
-          tabBarIcon: ({ color, size }) => <Ionicons name="home-outline" color={color} size={size} />,
+          tabBarIcon: ({ color, size }) => <MaterialIcons name="home" color={color} size={size} />,
         }}
       />
       <Tabs.Screen
         name="favorite"
         options={{
           title: 'Favorite',
-          tabBarIcon: ({ color, size }) => <Ionicons name="heart-outline" color={color} size={size} />,
+          tabBarIcon: ({ color, size }) => <MaterialIcons name="favorite" color={color} size={size} />,
         }}
       />
       <Tabs.Screen
         name="settings"
         options={{
           title: 'Settings',
-          tabBarIcon: ({ color, size }) => <Ionicons name="settings-outline" color={color} size={size} />,
+          tabBarIcon: ({ color, size }) => <MaterialIcons name="settings" color={color} size={size} />,
         }}
       />
     </Tabs>
