@@ -1,7 +1,6 @@
 import { Comment } from "@/domain/entity";
-import { StyleProp, ViewProps } from "react-native";
+import { StyleProp, ViewProps, FlatList } from "react-native";
 import { CommentListItem } from "./CommentListItem";
-import { FlatList } from "react-native";
 
 type CommentListProps = {
   comments: Comment[],
