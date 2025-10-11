@@ -10,7 +10,7 @@ export const postDetailStyles = StyleSheet.create({
   card: {
     marginVertical: spacingY.s,
     paddingHorizontal: spacingX.l,
-    paddingVertical: spacingY.l,
+    paddingVertical: spacingY.s,
     borderRadius: borderRadius.m,
     elevation: 2,
     shadowColor: '#000',
@@ -22,7 +22,7 @@ export const postDetailStyles = StyleSheet.create({
     marginBottom: spacingY.s,
   },
   body: {
-    marginBottom: spacingY.s,
+    marginBottom: spacingY.none,
   },
   userCard: {
     borderRadius: borderRadius.m,
@@ -37,7 +37,7 @@ export const postDetailStyles = StyleSheet.create({
   },
   userInfo: {
     ...typography.caption,
-    marginBottom: spacingY.xxs,
+    marginBottom: spacingY.none,
     marginLeft: horizontalScale(4),
   },
   button: {

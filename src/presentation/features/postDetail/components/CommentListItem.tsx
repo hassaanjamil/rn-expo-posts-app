@@ -26,8 +26,8 @@ export const CommentListItem = ({
     <ThemedView
       style={[{ flexDirection: 'row' }, containerStyle]}>
       <MaterialIcons
-        style={{ marginTop: spacingY.xxs, marginRight: spacingX.xs, }}
-        name="format-quote" size={horizontalScale(16)}
+        style={{ marginRight: spacingX.xs }}
+        name="format-quote" size={horizontalScale(22)}
         color={colors.text}
       />
       <ThemedText

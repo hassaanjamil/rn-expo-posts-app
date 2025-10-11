@@ -4,7 +4,7 @@ import { borderRadius, spacingX, spacingY } from '@/presentation/theme/spacing';
 
 export const postListItemStyles = StyleSheet.create({
   container: {
-    marginVertical: spacingY.s,
+    marginVertical: spacingY.xs,
     marginHorizontal: spacingX.s,
     paddingHorizontal: spacingX.s,
     paddingVertical: spacingY.s,
@@ -20,7 +20,7 @@ export const postListItemStyles = StyleSheet.create({
   },
   body: {
     color: '#666',
-    marginBottom: spacingY.m,
+    marginBottom: spacingY.xxs,
   },
   button: {
     alignSelf: 'flex-end',
