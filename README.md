@@ -38,6 +38,14 @@ Configure it, by following the instructions and run the local server to make thi
 - **Navigation:** File-based Expo Router (stack + tabs)
 - **Internationalization:** i18next (pre-wired in `src/main/localization`)
 - **Tooling:** ESLint, TypeScript strict mode
+### Versions
+- Expo 53.0.23, React 19.0.0, React Native 0.79.5
+- Typescript 5.8.3, VS Code 1.104.3
+- Node.js 22.18.0
+- Expo Router 5.1.7
+- Expo Localization 16.1.6
+- i18n 25.2.1
+- Expo Font 13.3.2
 
 ## Architecture
 
@@ -49,14 +57,6 @@ src
 ├── main          // App wiring: dependency container, auth context, constants, shared hooks
 └── app           // File-based Expo Router entry points import component from presentation/features (auth stack, tabs, modals)
 ```
-## Tech Stack
-- Expo 53.0.23, React 19.0.0, React Native 0.79.5
-- Typescript 5.8.3, VS Code 1.104.3
-- Node.js: 22.18.0
-- Expo Router 5.1.7
-- Expo Localization 16.1.6
-- i18n 25.2.1
-- Expo Font 13.3.2
 
 ## Key principles
 - **Domain layer** exposes pure business logic through use cases (`GetPostsUseCase`, `GetPostUseCase`, `GetUserUseCase`, `GetCommentUseCase`).
