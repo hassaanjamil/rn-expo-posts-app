@@ -1,32 +1,35 @@
-import React from 'react';
-import { FlatList, View } from 'react-native';
+import React, { useCallback } from 'react';
+import { View } from 'react-native';
 import { useRouter } from 'expo-router';
-import { PostListItem } from '@/presentation/features/posts/components';
 import { LoaderComponent, ErrorComponent } from '@/presentation/components/common';
 import { usePosts } from '@/presentation/features/posts/hooks/usePosts';
+import { Post } from '@/domain/entity';
+import { PostList } from '../components/PostList';
+import { useFavoritePosts } from '@/presentation/features/favorite/hooks';
 
 export const PostsScreen: React.FC = () => {
   const router = useRouter();
-  const { posts, isLoading, error } = usePosts();
+  const { favoritePosts, toggleFavoritePost } = useFavoritePosts();
+  const { postsWithFavorites, isLoading, error } = usePosts(favoritePosts);
 
   const goToDetail = (postId: number, userId: number) => {
     router.push({ pathname: '/post-detail', params: { postId, userId } });
   };
 
+  const handleToggleFavorite = useCallback((post: Post) => {
+    (async () => {
+      await toggleFavoritePost(post);
+    })();
+  }, [toggleFavoritePost]);
+
   return (
     <View style={{ flex: 1 }}>
       {isLoading && <LoaderComponent />}
       {error && <ErrorComponent message={error} />}
-      <FlatList
-        data={posts}
-        keyExtractor={(item) => item.id.toString()}
-        renderItem={({ item }) => (
-          <PostListItem
-            item={item}
-            onPress={() => goToDetail(item.id, item.userId)}
-          />
-        )}
-      />
+      <PostList
+        posts={postsWithFavorites}
+        goToDetail={goToDetail}
+        onToggleFavorite={handleToggleFavorite} />
     </View>
   );
 };

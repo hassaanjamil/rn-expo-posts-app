@@ -1,6 +1,6 @@
 import React from 'react';
 import { ActivityIndicator, StyleSheet, View } from 'react-native';
-import { useThemeColor } from '@/main/hooks/useThemeColor';
+import { useThemeColor } from '@/main/hooks';
 
 type LoaderComponentProps = {
   lightColor?: string;

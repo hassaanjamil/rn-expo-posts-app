@@ -1,31 +1,24 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Post } from '@/domain/entity';
 import { useCases } from '@/main/dependencies';
 
-type UsePostsState = {
-  posts: Post[];
-  isLoading: boolean;
-  error: string | null;
-};
-
-export const usePosts = () => {
-  const [state, setState] = useState<UsePostsState>({
-    posts: [],
-    isLoading: true,
-    error: null,
-  });
+export const usePosts = (favoritePosts: Post[]) => {
+  const [posts, setPosts] = useState<Post[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
 
   const loadPosts = useCallback(async () => {
-    setState((prev) => ({ ...prev, isLoading: true, error: null }));
+    setIsLoading(true);
+    setError(null);
+
     try {
-      const posts = await useCases.getPostsUseCase.execute();
-      setState({ posts, isLoading: false, error: null });
-    } catch (error) {
-      setState({
-        posts: [],
-        isLoading: false,
-        error: error instanceof Error ? error.message : 'Failed to load posts',
-      });
+      const fetchedPosts = await useCases.getPostsUseCase.execute();
+      setPosts(fetchedPosts);
+    } catch (err) {
+      setPosts([]);
+      setError(err instanceof Error ? err.message : 'Failed to load posts');
+    } finally {
+      setIsLoading(false);
     }
   }, []);
 
@@ -33,8 +26,25 @@ export const usePosts = () => {
     loadPosts();
   }, [loadPosts]);
 
+  const favoritePostIds = useMemo(
+    () => new Set(favoritePosts.map((favoritePost) => favoritePost.id)),
+    [favoritePosts],
+  );
+
+  const postsWithFavorites = useMemo(
+    () =>
+      posts.map((post) => ({
+        ...post,
+        isFavorite: favoritePostIds.has(post.id),
+      })),
+    [posts, favoritePostIds],
+  );
+
   return {
-    ...state,
+    postsWithFavorites,
+    isLoading,
+    error,
     refresh: loadPosts,
+    favoritePosts,
   };
 };

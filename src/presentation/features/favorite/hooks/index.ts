@@ -1,0 +1,1 @@
+export { useFavoritePosts } from "./useFavoritePosts";

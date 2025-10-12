@@ -4,6 +4,7 @@ import { Platform } from 'react-native';
 
 export const LANGUAGE_KEY = 'language';
 export const AUTH_STORAGE_KEY = 'auth:isLoggedIn';
+export const FAVORITE_POSTS_KEY = 'posts:favorite';
 
 const getDebuggerHost = () => {
   const expoConfigHost = Constants.expoConfig?.hostUri;

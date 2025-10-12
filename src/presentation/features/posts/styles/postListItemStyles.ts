@@ -26,4 +26,9 @@ export const postListItemStyles = StyleSheet.create({
     alignSelf: 'flex-end',
     minWidth: horizontalScale(120),
   },
+  toggleFavoriteContainer: {
+    width: '100%',
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+  },
 });
