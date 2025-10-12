@@ -4,7 +4,7 @@ import { useRouter } from 'expo-router';
 import { LoaderComponent, ErrorComponent } from '@/presentation/components/common';
 import { usePosts } from '@/presentation/features/posts/hooks/usePosts';
 import { Post } from '@/domain/entity';
-import { PostList } from '../components/PostList';
+import { PostList } from './PostList';
 import { useFavoritePosts } from '@/presentation/features/favorite/hooks';
 
 export const PostsScreen: React.FC = () => {

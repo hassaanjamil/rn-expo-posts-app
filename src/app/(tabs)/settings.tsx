@@ -1,3 +1,3 @@
-import { SettingsScreen } from '@/presentation/features/settings/screens';
+import { SettingsScreen } from '@/presentation/features/settings/components';
 
 export default SettingsScreen;

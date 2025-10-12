@@ -1,1 +1,1 @@
-export { PostListItem } from './PostListItem';
+export { PostsScreen } from './PostsScreen';

@@ -1,3 +1,3 @@
-import { FavoriteScreen } from '@/presentation/features/favorite/screens';
+import { FavoriteScreen } from '@/presentation/features/favorite/components';
 
 export default FavoriteScreen;

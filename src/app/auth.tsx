@@ -1,3 +1,3 @@
-import { AuthScreen } from "@/presentation/features/auth/screens"
+import { AuthScreen } from "@/presentation/features/auth/components"
 
 export default AuthScreen;
