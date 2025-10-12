@@ -113,6 +113,14 @@ src/
 
    Use the Expo CLI prompts to launch on iOS simulator, Android emulator, or Expo Go.
 
+   ## Screenshots
+  <div style="display: flex; gap: 20px;">
+      <!--suppress CheckImageSize -->
+      <img src="screenshots/1.png" width="300" alt="Preview 1"/>
+      <!--suppress CheckImageSize -->
+      <img src="screenshots/2.png" width="300" alt="Preview 2"/>
+  </div>
+
 4. **First-time login**
 
    - Launch app → Auth screen.
