@@ -30,9 +30,6 @@ export const postDetailStyles = StyleSheet.create({
   title: {
     marginBottom: spacingY.s,
   },
-  body: {
-    marginBottom: spacingY.none,
-  },
   userTitle: {
     ...typography.subtitle,
     marginBottom: spacingY.xs,

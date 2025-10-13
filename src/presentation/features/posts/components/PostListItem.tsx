@@ -6,6 +6,7 @@ import { moderateScale, responsiveHitSlop, useResponsiveValue } from '@/main/uti
 import { postListItemStyles } from '../../posts/styles/postListItemStyles';
 import { MaterialIcons } from '@expo/vector-icons';
 import { useTheme } from '@react-navigation/native';
+import { cardStyles } from '@/main/styles';
 
 type PostListItemProps = {
   post: Post;
@@ -36,7 +37,7 @@ export const PostListItem: React.FC<PostListItemProps> =
         onPress={() => {
           onPress && onPress(post.id)
         }}>
-        <ThemedView style={postListItemStyles.container}>
+        <ThemedView style={cardStyles.container}>
           <ThemedText
             type="title"
             style={postListItemStyles.title}>

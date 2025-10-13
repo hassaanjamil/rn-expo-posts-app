@@ -27,4 +27,7 @@ export const commentListStyles = StyleSheet.create({
     marginBottom: spacingY.none,
     marginLeft: horizontalScale(4),
   },
+  itemBody: {
+    marginBottom: spacingY.none,
+  },
 });

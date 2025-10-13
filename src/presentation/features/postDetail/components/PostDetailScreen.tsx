@@ -2,12 +2,13 @@ import React, { useMemo } from 'react';
 import { useLocalSearchParams } from 'expo-router';
 import { ThemedText, ThemedView } from '@/presentation/components/theme';
 import { LoaderComponent, ErrorComponent } from '@/presentation/components/common';
-import { postDetailStyles } from '@/presentation/features/postDetail/styles/postDetailStyles';
 import { usePostDetail } from '@/presentation/features/postDetail/hooks/usePostDetail';
 import { StyleSheet, View } from 'react-native';
 import { CommentList } from '../components/CommentList';
 import { spacingY } from '@/presentation/theme/spacing';
 import { UserRowItem } from '../components/UserListItem';
+import { cardStyles } from '@/main/styles';
+import { commentListStyles } from '../styles/commentListStyles';
 
 export const PostDetailScreen: React.FC = () => {
   const { postId, userId } = useLocalSearchParams<{ postId?: string; userId?: string }>();
@@ -22,11 +23,11 @@ export const PostDetailScreen: React.FC = () => {
       {isLoading && <LoaderComponent />}
       {error && <ErrorComponent message={error} />}
       {post && (
-        <ThemedView style={postDetailStyles.container}>
+        <ThemedView style={cardStyles.container}>
           <ThemedText type="title" style={screenStyles.title}>
             {post.title}
           </ThemedText>
-          <ThemedText style={postDetailStyles.body}>{post.body}</ThemedText>
+          <ThemedText style={commentListStyles.itemBody}>{post.body}</ThemedText>
         </ThemedView>
       )}
       {user && (
