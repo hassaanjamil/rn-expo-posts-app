@@ -11,7 +11,7 @@ const { useFavoritePosts } = jest.requireMock('@/presentation/features/favorite/
   useFavoritePosts: jest.Mock;
 };
 
-const mockPostList = jest.fn(() => null);
+const mockPostList = jest.fn((_props: unknown) => null);
 jest.mock('@/presentation/features/posts/components/PostList', () => ({
   PostList: (props: unknown) => {
     mockPostList(props);
@@ -51,7 +51,8 @@ describe('FavoriteScreen', () => {
 
     expect(queryByText('No Posts!')).toBeNull();
     expect(mockPostList).toHaveBeenCalledTimes(1);
-    const props = mockPostList.mock.calls[0][0] as {
+    // ensure mockPostList is treated as a jest.Mock so .mock.calls is correctly typed
+    const props = (mockPostList as jest.Mock).mock.calls[0][0] as unknown as {
       posts: Post[];
       onToggleFavorite: (post: Post) => void;
     };
