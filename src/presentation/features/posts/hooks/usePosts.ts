@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { Post } from '@/domain/entity';
+import { Post } from '@/presentation/features/posts/types';
 import { useCases } from '@/main/dependencies';
 
 export const usePosts = (favoritePosts: Post[]) => {

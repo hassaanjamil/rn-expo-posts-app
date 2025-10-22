@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import { useRouter } from 'expo-router';
 import { LoaderComponent, ErrorComponent } from '@/presentation/components/common';
 import { usePosts } from '@/presentation/features/posts/hooks/usePosts';
-import { Post } from '@/domain/entity';
+import { Post } from '@/presentation/features/posts/types';
 import { PostList } from './PostList';
 import { useFavoritePosts } from '@/presentation/features/favorite/hooks';
 

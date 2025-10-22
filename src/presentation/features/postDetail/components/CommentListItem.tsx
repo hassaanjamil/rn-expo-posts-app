@@ -1,6 +1,5 @@
-import { Comment } from "@/domain/entity";
+import { Comment } from "@/presentation/features/postDetail/types";
 import { ThemedText, ThemedView } from "@/presentation/components/theme";
-import { postDetailStyles } from "../styles/postDetailStyles";
 import { MaterialIcons } from "@expo/vector-icons";
 import { StyleProp, ViewProps } from "react-native";
 import { useTheme } from "@react-navigation/native";

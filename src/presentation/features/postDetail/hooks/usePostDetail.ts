@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { Post, User, Comment } from '@/domain/entity';
+import { Post } from '@/presentation/features/posts/types';
+import { User, Comment } from '@/presentation/features/postDetail/types';
 import { useCases } from '@/main/dependencies';
 
 type UsePostDetailState = {

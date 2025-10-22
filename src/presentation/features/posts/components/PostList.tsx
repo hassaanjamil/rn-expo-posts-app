@@ -1,5 +1,5 @@
 import React from 'react';
-import { Post } from '@/domain/entity';
+import { Post } from '@/presentation/features/posts/types';
 import { FlatList } from 'react-native';
 import { PostListItem } from './PostListItem';
 

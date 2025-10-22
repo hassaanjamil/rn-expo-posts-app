@@ -1,5 +1,5 @@
 import React from 'react';
-import { Post } from '@/domain/entity';
+import { Post } from '@/presentation/features/posts/types';
 import { ThemedText, ThemedView } from '@/presentation/components/theme';
 import { Pressable } from 'react-native';
 import { moderateScale, responsiveHitSlop, useResponsiveValue } from '@/main/utils/PixelUtils';

@@ -1,4 +1,4 @@
-import { User } from "@/domain/entity";
+import { User } from "@/presentation/features/postDetail/types";
 import { ThemedText, ThemedView } from "@/presentation/components/theme";
 import { MaterialIcons } from "@expo/vector-icons";
 import { StyleProp, ViewProps } from "react-native";

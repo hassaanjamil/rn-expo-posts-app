@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { Post } from '@/domain/entity';
+import { Post } from '@/presentation/features/posts/types';
 import { FAVORITE_POSTS_KEY } from '@/main/constants/constants';
 
 type FavoriteListener = (posts: Post[]) => void;

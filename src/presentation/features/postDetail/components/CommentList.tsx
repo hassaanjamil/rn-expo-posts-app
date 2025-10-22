@@ -1,4 +1,4 @@
-import { Comment } from "@/domain/entity";
+import { Comment } from "@/presentation/features/postDetail/types";
 import { StyleProp, FlatList, View, ViewStyle } from "react-native";
 import { CommentListItem } from "./CommentListItem";
 import { ThemedView } from "@/presentation/components/theme";

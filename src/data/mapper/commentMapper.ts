@@ -1,4 +1,4 @@
-import { Comment } from '@/domain/entity';
+import { Comment } from '@/presentation/features/postDetail/types';
 import { CommentDto } from '@/data/dto';
 
 export const mapCommentDtoToComment = (dtos: CommentDto[]): Comment[] =>

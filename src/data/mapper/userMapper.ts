@@ -1,4 +1,4 @@
-import { User } from '@/domain/entity';
+import { User } from '@/presentation/features/postDetail/types';
 import { UserDto } from '@/data/dto';
 
 export const mapUserDtoToUser = (dto: UserDto): User => ({

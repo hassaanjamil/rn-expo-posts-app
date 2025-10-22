@@ -1,4 +1,4 @@
-import { Post } from '@/domain/entity';
+import { Post } from '@/presentation/features/posts/types';
 import { PostDto } from '@/data/dto';
 
 export const mapPostDtoToPost = (dto: PostDto): Post => ({

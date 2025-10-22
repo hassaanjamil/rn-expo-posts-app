@@ -2,7 +2,7 @@ import React, { useCallback } from 'react';
 import { ThemedText, ThemedView } from '@/presentation/components/theme';
 import { useFavoritePosts } from '@/presentation/features/favorite/hooks';
 import { useRouter } from 'expo-router';
-import { Post } from '@/domain/entity';
+import { Post } from '@/presentation/features/posts/types';
 import { PostList } from '../../posts/components/PostList';
 import { View } from 'react-native';
 
